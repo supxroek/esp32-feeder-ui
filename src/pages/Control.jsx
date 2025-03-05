@@ -35,8 +35,8 @@ export default function Control({ esp32Ip, esp32Port }) {
       {isCameraVisible && (
         <img
           className="w-full max-w-md my-4 rounded-lg shadow-lg"
-          //src={`http://${esp32Ip}${esp32Port ? `:${esp32Port}` : ""}/stream`} // สำหรับการเข้าถึงกล้องด้วย ESP32 ที่เชื่อมต่อกับกล้อง
-          src={`http://${esp32Ip}${esp32Port ? `:${esp32Port}` : ""}/video`} // ทดสอบการเข้าถึงกล้องด้วยมือถือโดยใช้ IP และ Port
+          src={`http://${esp32Ip}${esp32Port ? `:${esp32Port}` : ""}/stream`} // สำหรับการเข้าถึงกล้องด้วย ESP32 ที่เชื่อมต่อกับกล้อง
+          //src={`http://${esp32Ip}${esp32Port ? `:${esp32Port}` : ""}/video`} // ทดสอบการเข้าถึงกล้องด้วยมือถือโดยใช้ IP และ Port
           //src={`http://10.1.1.92:8080/video`} // ทดสอบการเข้าถึงกล้องด้วยมือถือโดยใช้ IP และ Port
           alt="Camera Stream"
         />
