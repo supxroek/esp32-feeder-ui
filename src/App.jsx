@@ -17,8 +17,7 @@ export default function App() {
     setStatus("🍖 กำลังให้อาหาร...");
     try {
       await fetch(`http://${ipEsp32}/feed`);
-      await fetch("http://localhost:5000/feed");
-      await fetch("https://feeder-app.onrender.com");
+      setStatus("✅ ให้อาหารเรียบร้อยแล้ว!");
     } catch {
       return setStatus("✅ ให้อาหารเรียบร้อยแล้ว!");
     }
