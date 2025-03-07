@@ -16,7 +16,7 @@ export default function App() {
   const handleFeed = async () => {
     setStatus("🍖 กำลังให้อาหาร...");
     try {
-      await fetch(`http://${ipEsp32}/feed || http://192.168.32.16/feed`);
+      await fetch(`http://${ipEsp32}/feed`);
     } catch {
       return setStatus("✅ ให้อาหารเรียบร้อยแล้ว!");
     }
@@ -78,7 +78,7 @@ export default function App() {
           <div className="mt-4 w-full max-w-md rounded-lg overflow-hidden shadow-lg border border-gray-300 bg-white">
             <img
               className="w-full"
-              src={`http://${ipCamera}:${portCamera}/video || http://192.168.32.236:8080/video`} // IP ของ ESP32 ที่ใช้กับการดูวิดีโอ
+              src={`http://${ipCamera}:${portCamera}/video`} // IP ของ ESP32 ที่ใช้กับการดูวิดีโอ
               alt="Camera Stream"
             />
           </div>
