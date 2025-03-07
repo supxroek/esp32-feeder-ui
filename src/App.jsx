@@ -16,8 +16,8 @@ export default function App() {
   const handleFeed = async () => {
     setStatus("🍖 กำลังให้อาหาร...");
     try {
-      //await fetch(`http://${ipEsp32}/feed`);
-      //await fetch("http://localhost:5000/feed");
+      await fetch(`http://${ipEsp32}/feed`);
+      await fetch("http://localhost:5000/feed");
       await fetch("https://feeder-app.onrender.com");
     } catch {
       return setStatus("✅ ให้อาหารเรียบร้อยแล้ว!");
