@@ -16,7 +16,8 @@ export default function App() {
   const handleFeed = async () => {
     setStatus("🍖 กำลังให้อาหาร...");
     try {
-      await fetch(`http://${ipEsp32}/feed`);
+      //await fetch(`http://${ipEsp32}/feed`);
+      await fetch("../netlify/functions/proxy");
     } catch {
       return setStatus("✅ ให้อาหารเรียบร้อยแล้ว!");
     }
