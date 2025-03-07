@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { handler } from "../netlify/functions/proxy";
 
 export default function App() {
-  //const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("");
   const [isCameraVisible, setCameraVisible] = useState(false);
   const [ipEsp32, setIpEsp32] = useState("192.168.32.16"); //Set Ip Esp32 Default
   const [ipCamera, setipCamera] = useState("192.168.32.236"); //Set Ip Camera Default
@@ -14,15 +13,15 @@ export default function App() {
     setIpEsp32(ipEsp32);
   }, [ipCamera, portCamera, ipEsp32]);
 
-  // const handleFeed = async () => {
-  //   setStatus("🍖 กำลังให้อาหาร...");
-  //   try {
-  //     //await fetch(`http://${ipEsp32}/feed`);
-  //     await fetch("../netlify/functions/proxy");
-  //   } catch {
-  //     return setStatus("✅ ให้อาหารเรียบร้อยแล้ว!");
-  //   }
-  // };
+  const handleFeed = async () => {
+    setStatus("🍖 กำลังให้อาหาร...");
+    try {
+      //await fetch(`http://${ipEsp32}/feed`);
+      await fetch("http://localhost:5000/feed");
+    } catch {
+      return setStatus("✅ ให้อาหารเรียบร้อยแล้ว!");
+    }
+  };
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gradient-to-b from-green-100 to-green-300 p-6 gap-y-6">
@@ -89,8 +88,7 @@ export default function App() {
         {/* ปุ่มให้อาหาร */}
         <button
           className="bg-blue-500 text-white px-8 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-transform transform active:scale-95 mt-6"
-          //onClick={handleFeed}
-          onClick={handler}
+          onClick={handleFeed}
         >
           🍽️ ให้อาหาร
         </button>
